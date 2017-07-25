@@ -1,0 +1,14 @@
+[Unit]
+Description=nheqminer ZCash Miner
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+User=root
+WorkingDirectory=/opt/nheqminer
+ExecStart=/usr/bin/screen -d -m -S nheqminer /opt/nheqminer/mining_start.sh
+ExecStop=/usr/bin/killall -w -s 2 nheqminer
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target
